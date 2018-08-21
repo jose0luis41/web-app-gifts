@@ -13,7 +13,8 @@
           <input type="email" matInput formControlName="emailForm" [(ngModel)]="userService.userPerson.Email" placeholder="Email" required>
         </mat-form-field>
         <div *ngIf="submitted && formGr.emailForm.errors" class="div-errors">
-          <div *ngIf="formGr.emailForm.errors.required">Invalid email</div>
+            <div *ngIf="formGr.emailForm.errors.required">Email is required</div>
+          <div *ngIf="formGr.emailForm.errors.email">Invalid email</div>
         </div>
 
         <mat-form-field class="example-full-width">

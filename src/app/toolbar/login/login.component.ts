@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
 
     this.formGroupObject = this.fb.group({
       
-      'emailForm': ['', Validators.email],
+      'emailForm': ['', [Validators.required, Validators.email]],
       'passwordFrom': ['', Validators.required],
 
     });
@@ -87,6 +87,7 @@ export class LoginComponent implements OnInit {
     this.loadingLogin = true;
     //console.log(this.userService.userPerson);
     if (this.formGroupObject.valid) {
+
       this.userService.login(this.userService.userPerson.Email,this.userService.userPerson.Password).subscribe(
         response => {
           localStorage.setItem('currentUser', JSON.stringify(response));
@@ -118,6 +119,7 @@ export class LoginComponent implements OnInit {
       );
       
     } else {
+
       this.loadingLogin = false;
       this.openSnackBar('Errors in the form',false);
     }

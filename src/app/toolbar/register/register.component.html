@@ -32,7 +32,8 @@
             <input type="email" matInput formControlName="emailForm" [(ngModel)]="userService.registerUser.Email" placeholder="Email" required>
           </mat-form-field>
           <div *ngIf="submitted && formGr.emailForm.errors" class="div-errors">
-            <div *ngIf="formGr.emailForm.errors.required">Invalid email</div>
+              <div *ngIf="formGr.emailForm.errors.required">Email is required</div>
+            <div *ngIf="formGr.emailForm.errors.email">Invalid email</div>
             <div *ngIf="formGr.emailForm.errors.maxlength">Just type 60 characters</div>
           </div>
   
