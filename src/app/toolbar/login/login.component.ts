@@ -110,7 +110,7 @@ export class LoginComponent implements OnInit {
           this.openSnackBar('User '+this.userService.userPerson.Email+' is not registered',false);
 
         }else{
-          this.openSnackBar('Unexpected error',false);
+          this.openSnackBar('No connection with node server',false);
 
         }
           this.loadingLogin = false;
