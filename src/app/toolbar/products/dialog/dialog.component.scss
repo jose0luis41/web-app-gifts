@@ -1,0 +1,30 @@
+.example-full-width {
+    min-width: 100% !important;
+    
+  }
+
+  .div-errors{
+    width: 100% !important;
+    margin-top: -10px;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    color: red;
+    font-size: 11px;
+    margin-left: 0px;
+    margin-bottom: 8px;
+    min-width: 550px !important;
+
+    .div-manage-errors{
+      min-width: 550px !important;
+      margin: auto;
+      text-align: start;
+    }
+  }
+
+  .mat-dialog-actions{
+    margin-top: 10px;
+    justify-content: center;
+  }
+ 
+  .mat-dialog-container {
+    width: 70% !important;
+  }

@@ -1,0 +1,78 @@
+$main-color: #4650B2;
+
+div{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.div-inside{
+    display: table-cell;
+}
+
+.table-container {
+    margin: auto;
+    display: inline-block;
+    min-height: 274px;
+    max-height: 350px;
+    margin-right: 30px;
+  }
+
+.data-table{
+    justify-content: center;
+    width: 800px;
+    max-width: 500px;
+    min-width: 450px;
+    //height: -webkit-fill-available;
+    flex-direction: column;
+    margin: auto;
+    height: calc( 100vh - 250px);
+    overflow: auto; 
+    //min-height: 250px;
+
+    mat-cell:first-child, mat-footer-cell:first-child, mat-header-cell:first-child {
+        padding-left: 10px;
+        max-width: 134px;
+    }
+
+    mat-cell:last-child, mat-footer-cell:last-child, mat-header-cell:last-child {
+        padding-right: 0px;
+    }
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #992121;
+  }
+
+  h4{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: $main-color;
+    font-size: 17px;
+  }
+
+  p{
+      margin: 0;
+      font-weight: 600;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .mat-cell {
+    display: initial;
+    min-height: auto;
+  }
+  .mat-header-cell{
+    justify-content: center;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  .mat-fab.mat-accent, .mat-flat-button.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+    background-color: $main-color;
+}
+
+button{
+    color: $main-color;
+}

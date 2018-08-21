@@ -1,0 +1,58 @@
+<h2 mat-dialog-title>{{addProduct ? 'Add product': 'Update product'}}</h2>
+
+<mat-dialog-content>
+
+    <form #productForm="ngForm" [formGroup]="form" (ngSubmit)="save(productForm)">
+
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" formControlName="nameProduct" [(ngModel)]="service.product.Name" placeholder="Name" required>
+        </mat-form-field>
+        <div *ngIf="submitted && formGr.nameProduct.errors" class="div-errors">
+            <div *ngIf="formGr.nameProduct.errors.required" class="div-manage-errors">Name is required</div>
+            <div *ngIf="formGr.nameProduct.errors.maxlength">Just type 60 characters</div>
+
+        </div>
+
+
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" formControlName="descriptionProduct" [(ngModel)]="service.product.Description" placeholder="Description"
+                required>
+        </mat-form-field>
+        <div *ngIf="submitted && formGr.descriptionProduct.errors" class="div-errors">
+            <div *ngIf="formGr.descriptionProduct.errors.required" class="div-manage-errors">Description is required</div>
+            <div *ngIf="formGr.nameProduct.errors.maxlength">Just type 100 characters</div>
+
+        </div>
+
+        <mat-form-field>
+            <mat-select formControlName="topicProduct" [(ngModel)]="service.product.Topic" placeholder="Topic" required>
+                <mat-option *ngFor="let topic of topics" [value]="topic.name">
+                    {{topic.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div *ngIf="submitted && formGr.topicProduct.errors" class="div-errors">
+            <div *ngIf="formGr.topicProduct.errors.required" class="div-manage-errors">Topic is required</div>
+        </div>
+
+        <mat-form-field class="example-full-width">
+            <input matInput type="number" formControlName="costProduct" [(ngModel)]="service.product.Cost" placeholder="Cost" required>
+        </mat-form-field>
+        <div *ngIf="invalidCost" class="div-errors">
+            <div>Too expensive, use fewer digits</div>
+        </div>
+        <div *ngIf="submitted && formGr.costProduct.errors" class="div-errors">
+            <div *ngIf="formGr.costProduct.errors.required" class="div-manage-errors">Cost is required</div>
+        </div>
+
+    </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <div>
+        <button class="mat-raised-button mat-primary" (click)="save()">{{addProduct ? 'Add': 'Updated'}}</button>
+        <button class="mat-raised-button" (click)="close()">Close</button>
+    </div>
+
+</mat-dialog-actions>

@@ -1,0 +1,88 @@
+<div>
+    <h4>Complete your data and create your account</h4>
+  
+    <mat-card>
+      <mat-card-content>
+  
+        <form #userRegisterForm="ngForm" [formGroup]="formGroupObject" (ngSubmit)="onSubmit(userRegisterForm)">
+  
+
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput formControlName="nameForm" [(ngModel)]="userService.registerUser.Name" placeholder="Name"
+                  required>
+              </mat-form-field>
+              <div *ngIf="submitted && formGr.nameForm.errors" class="div-errors">
+                <div *ngIf="formGr.nameForm.errors.required">Name is requiered</div>
+                <div *ngIf="formGr.nameForm.errors.maxlength">Just type 60 characters</div>
+
+              </div>
+
+
+          <mat-form-field class="example-full-width">
+              <input type="text" matInput formControlName="lastNameForm" [(ngModel)]="userService.registerUser.LastName" placeholder="Lastname"
+                required>
+            </mat-form-field>
+            <div *ngIf="submitted && formGr.lastNameForm.errors" class="div-errors">
+              <div *ngIf="formGr.lastNameForm.errors.required">Lastname is requiered</div>
+              <div *ngIf="formGr.lastNameForm.errors.maxlength">Just type 60 characters</div>
+
+            </div>
+
+          <mat-form-field class="example-full-width">
+            <input type="email" matInput formControlName="emailForm" [(ngModel)]="userService.registerUser.Email" placeholder="Email" required>
+          </mat-form-field>
+          <div *ngIf="submitted && formGr.emailForm.errors" class="div-errors">
+            <div *ngIf="formGr.emailForm.errors.required">Invalid email</div>
+            <div *ngIf="formGr.emailForm.errors.maxlength">Just type 60 characters</div>
+          </div>
+  
+          <mat-form-field class="example-full-width">
+            <input type="password" matInput formControlName="passwordFrom" [(ngModel)]="userService.registerUser.Password" placeholder="Password"
+              required>
+          </mat-form-field>
+          <div *ngIf="submitted && formGr.passwordFrom.errors" class="div-errors">
+            <div *ngIf="formGr.passwordFrom.errors.required">Password is requiered</div>
+            <div *ngIf="formGr.passwordFrom.errors.maxlength">Just type 60 characters</div>
+
+          </div>
+
+          <mat-form-field class="example-full-width">
+              <mat-select formControlName="typeForm" [(ngModel)]="userService.registerUser.Type" placeholder="Type" required>
+                  <mat-option *ngFor="let type of types" [value]="type.name">
+                      {{type.name}}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+          <div *ngIf="submitted && formGr.typeForm.errors" class="div-errors">
+              <div *ngIf="formGr.typeForm.errors.required" class="div-manage-errors">Type is required</div>
+          </div>
+
+
+          <mat-form-field class="example-full-width">
+              <mat-select formControlName="genderForm" [(ngModel)]="userService.registerUser.Gender" placeholder="Gender" required>
+                  <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                      {{gender.name}}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+          <div *ngIf="submitted && formGr.genderForm.errors" class="div-errors">
+              <div *ngIf="formGr.genderForm.errors.required" class="div-manage-errors">Topic is required</div>
+          </div>
+
+
+  
+          <div class="spinner" *ngIf="false">
+            <mat-spinner [diameter]=30></mat-spinner>
+          </div>
+  
+          <div class="button-div">
+            <button mat-raised-button color="primary" type="submit">Register</button>
+             <p id="permalink_section"><a routerLink="/" routerLinkActive="active">I have an account.</a></p>
+          </div>
+  
+        </form>
+  
+      </mat-card-content>
+  
+    </mat-card>
+  </div>

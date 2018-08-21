@@ -1,0 +1,111 @@
+<div>
+  <img *ngIf="isMale" src="/src/assets/images/profile.png" />
+  <img *ngIf="!isMale" src="/src/assets/images/images.png" />
+
+  <p>{{currentUser}}</p>
+</div>
+
+<div>
+  <button mat-mini-fab (click)="openDialog()">
+    <mat-icon md-12 aria-label="logOut">add</mat-icon>
+  </button>
+</div>
+
+
+<div>
+
+  <div class="table-container">
+
+    <mat-card>
+
+      <mat-card-content>
+        <h4>Clothes Products</h4>
+
+        <mat-table class="data-table mat-elevation-z8" [dataSource]="listClothesProducts">
+          <ng-container matColumnDef="Name">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let product">{{product.Name}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Description">
+            <mat-header-cell *matHeaderCellDef>Descrption</mat-header-cell>
+            <mat-cell *matCellDef="let product">{{product.Description}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Cost">
+            <mat-header-cell *matHeaderCellDef>Cost</mat-header-cell>
+            <mat-cell *matCellDef="let product">{{product.Cost}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef>
+              Action
+            </mat-header-cell>
+            <mat-cell *matCellDef="let product">
+              <button mat-icon-button (click)="openDialog(product)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button (click)="removeProduct(product)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+        </mat-table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="table-container">
+    <mat-card>
+
+      <mat-card-content>
+        <h4>Toys Products</h4>
+        <mat-table class="data-table mat-elevation-z8" [dataSource]="listToysProducts">
+          <ng-container matColumnDef="Name">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let product">{{product.Name}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Description">
+            <mat-header-cell *matHeaderCellDef>Descrption</mat-header-cell>
+            <mat-cell *matCellDef="let product">{{product.Description}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Cost">
+            <mat-header-cell *matHeaderCellDef>Cost</mat-header-cell>
+            <mat-cell *matCellDef="let product">{{product.Cost}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef>
+              Action
+            </mat-header-cell>
+            <mat-cell *matCellDef="let product">
+              <button mat-icon-button (click)="openDialog(product)" >
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button class="remove-buttton" (click)="removeProduct(product)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+        </mat-table>
+
+      </mat-card-content>
+      
+    </mat-card>
+  </div>
+
+
+
+</div>

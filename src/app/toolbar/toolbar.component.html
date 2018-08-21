@@ -1,0 +1,11 @@
+<mat-toolbar>
+  <button mat-mini-fab title="LogOut" *ngIf="!hideButton" (click)="logout()">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJiSURBVGhD7dpNiI1RHMfx690ImfKyGdkgipLERlGkZGPjZWEvViKykI2NkpeaWFiwUUgJSRTLWSgzpdgQpZREkpckefn+mKf+TedyzrnnPueMnl99ujPTM+c8v7pz53n+97Y8sgqX8Qo/a/Qed7EFY9BR9uI7XBvV6RImICqb8QOuhXM4hqg8gV3oM4bwoCZvYPf/hrkIylLYRZ5hDurMJFyHPY9dCMpG2AWOIEc2wJ5H8NNrE+wCB5Ejq2HP4wyC0hRJnKZIlaZI4oyKIstxD7t/f+dOL+6j6CLnUK1/AmPhyhRcg44rsshN2D2uogeujEM/RkUR0dNoNtpl8fCjd3IVkedYhCTJWUTeYQ06TkyR8dCrjK87sHuM9BU70FFCi2zHR9jfSUE3docRfasbWuQF7PGpncdEBCe0iAYF9vhu0CBiBoJSYhF5hHnwTqlFRGOpFfBKyUXkE+bjnym5iKYpO+GVUot8gAYj3imxyEssQ1BCi7yGPT61h+hDcEKLHIU9PqXbmIaohBZR9JKoybmvQdg9XM5C13DRiSkSmr9d/eoaK8meOYt8wTYkSa4ib6HJSbtMHX70To4iT7EA7bIVJ/986Z86ilxAtf4AZqJd9kN/N0UOH9ZD/38uYrJ+4IimJ6dRnUeRRXzSjEyrNEUSpylS5b8tcgg5shb2PE4hKCthFxiAXtPrjt6OtuexD0HR5z40f7WL6FMPx6F7jzrcgt1fgu8QlQMYuVBONxAVPZWuwLVo3R5jFqKjt8P2QDf+rg26TVMT/YFPR5JoGr4Qes9CF3vdtg5L4Dm4brV+ASerX1QcFH7JAAAAAElFTkSuQmCC">      </button>
+    <span>{{currentTitle}}</span>
+  
+    <!--<button mat-mini-fab title="See registered people" routerLink="/listpeople" (click)="setLabel(false)" routerLinkActive="active" class="button-people">
+        <mat-icon  md-12  aria-label="See people">view_list</mat-icon>
+      </button>-->
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
